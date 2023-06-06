@@ -1,0 +1,18 @@
+nav{
+  ul{
+    li{
+      a{
+        display: flex;
+        border-radius: 0px;
+        box-shadow: none;
+        padding-bottom: 4px;
+
+        }
+      }
+    }
+  }
+
+  .navbar-expand .navbar-nav .dropdown-menu {
+    position: absolute;
+    left: -140px !important;
+  }

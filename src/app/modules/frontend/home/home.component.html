@@ -1,0 +1,326 @@
+<!-- ======= swiper carousel Section ======= -->
+
+<swiper [config]="swiperCarouselConfig">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide" *ngFor="let slide of slideData">
+      <img src="https://picsum.photos/id/{{slide.id}}/1500/500" alt="{{slide.name}}" />
+    </div>
+  </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</swiper>
+
+<!-- ======= swiper carousel End ======= -->
+
+<!-- Top Feature Start -->
+<div class="container-fluid top-feature py-5 pt-lg-0">
+  <div class="container py-5 pt-lg-0">
+    <div class="row gx-0">
+      <div class="col-lg-4 wow fadeIn" data-wow-delay="0.1s">
+        <div class="bg-white shadow d-flex align-items-center h-100 px-5" style="min-height: 160px;">
+          <div class="d-flex">
+            <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
+              <i class="fa fa-times text-success"></i>
+            </div>
+            <div class="ps-3">
+              <h4>No Hidden Cost</h4>
+              <span>Clita erat ipsum lorem sit sed stet duo justo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 wow fadeIn" data-wow-delay="0.3s">
+        <div class="bg-white shadow d-flex align-items-center h-100 px-5" style="min-height: 160px;">
+          <div class="d-flex">
+            <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
+              <i class="fa fa-users text-success"></i>
+            </div>
+            <div class="ps-3">
+              <h4>Dedicated Team</h4>
+              <span>Clita erat ipsum lorem sit sed stet duo justo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 wow fadeIn" data-wow-delay="0.5s">
+        <div class="bg-white shadow d-flex align-items-center h-100 px-5" style="min-height: 160px;">
+          <div class="d-flex">
+            <div class="flex-shrink-0 btn-lg-square rounded-circle bg-light">
+              <i class="fa fa-phone text-success"></i>
+            </div>
+            <div class="ps-3">
+              <h4>24/7 Available</h4>
+              <span>Clita erat ipsum lorem sit sed stet duo justo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Top Feature End -->
+
+
+<!-- Features Start -->
+<div class="container-xxl pb-5">
+  <div class="container">
+    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+      <p class="fs-5 fw-bold text-success">About Us</p>
+      <h1 class="display-5 mb-5">Dedicated & Experienced Team Members</h1>
+    </div>
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+        <p class="fs-5 fw-bold text-success">Why Choosing Us!</p>
+        <h1 class="display-5 mb-4">Few Reasons Why People Choosing Us!</h1>
+        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
+          erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+        <a class="btn btn-success py-3 px-4" href="">Explore More</a>
+      </div>
+      <div class="col-lg-6">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6">
+            <div class="row g-4">
+              <div class="col-12 wow fadeIn" data-wow-delay="0.3s">
+                <div class="text-center rounded py-5 px-4" style="box-shadow: 0 0 45px rgba(0,0,0,.08);">
+                  <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                    <i class="fa fa-check fa-3x text-success"></i>
+                  </div>
+                  <h4 class="mb-0">100% Satisfaction</h4>
+                </div>
+              </div>
+              <div class="col-12 wow fadeIn" data-wow-delay="0.5s">
+                <div class="text-center rounded py-5 px-4" style="box-shadow: 0 0 45px rgba(0,0,0,.08);">
+                  <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                    <i class="fa fa-users fa-3x text-success"></i>
+                  </div>
+                  <h4 class="mb-0">Dedicated Team</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 wow fadeIn" data-wow-delay="0.7s">
+            <div class="text-center rounded py-5 px-4" style="box-shadow: 0 0 45px rgba(0,0,0,.08);">
+              <div class="btn-square bg-light rounded-circle mx-auto mb-4" style="width: 90px; height: 90px;">
+                <i class="fa fa-tools fa-3x text-success"></i>
+              </div>
+              <h4 class="mb-0">Modern Equipment</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Features End -->
+
+
+<!-- Service Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+      <p class="fs-5 fw-bold text-success">Our Services</p>
+      <h1 class="display-5 mb-5">Services That We Offer For You</h1>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="service-item rounded d-flex h-100">
+          <div class="service-img rounded">
+            <img class="img-fluid" src="https://picsum.photos/550/550?random=2" alt="">
+          </div>
+          <div class="service-text rounded p-5">
+            <div class="btn-square rounded-circle mx-auto mb-3">
+              <img class="img-fluid" src="https://picsum.photos/64/64?random=2" alt="Icon">
+            </div>
+            <h4 class="mb-3">Landscaping</h4>
+            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.
+            </p>
+            <a class="btn btn-sm" href=""><i class="fa fa-plus text-success me-2"></i> Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="service-item rounded d-flex h-100">
+          <div class="service-img rounded">
+            <img class="img-fluid" src="https://picsum.photos/550/550?random=5" alt="">
+          </div>
+          <div class="service-text rounded p-5">
+            <div class="btn-square rounded-circle mx-auto mb-3">
+              <img class="img-fluid" src="https://picsum.photos/64/64?random=5" alt="Icon">
+            </div>
+            <h4 class="mb-3">Landscaping</h4>
+            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.
+            </p>
+            <a class="btn btn-sm" href=""><i class="fa fa-plus text-success me-2"></i> Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="service-item rounded d-flex h-100">
+          <div class="service-img rounded">
+            <img class="img-fluid" src="https://picsum.photos/550/550?random=4" alt="">
+          </div>
+          <div class="service-text rounded p-5">
+            <div class="btn-square rounded-circle mx-auto mb-3">
+              <img class="img-fluid" src="https://picsum.photos/64/64?random=4" alt="Icon">
+            </div>
+            <h4 class="mb-3">Landscaping</h4>
+            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.
+            </p>
+            <a class="btn btn-sm" href=""><i class="fa fa-plus text-success me-2"></i> Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="service-item rounded d-flex h-100">
+          <div class="service-img rounded">
+            <img class="img-fluid" src="https://picsum.photos/550/550?random=1" alt="">
+          </div>
+          <div class="service-text rounded p-5">
+            <div class="btn-square rounded-circle mx-auto mb-3">
+              <img class="img-fluid" src="https://picsum.photos/64/64?random=1" alt="Icon">
+            </div>
+            <h4 class="mb-3">Landscaping</h4>
+            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.
+            </p>
+            <a class="btn btn-sm" href=""><i class="fa fa-plus text-success me-2"></i> Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="service-item rounded d-flex h-100">
+          <div class="service-img rounded">
+            <img class="img-fluid" src="https://picsum.photos/550/550?random=2" alt="">
+          </div>
+          <div class="service-text rounded p-5">
+            <div class="btn-square rounded-circle mx-auto mb-3">
+              <img class="img-fluid" src="https://picsum.photos/64/64?random=2" alt="Icon">
+            </div>
+            <h4 class="mb-3">Landscaping</h4>
+            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.
+            </p>
+            <a class="btn btn-sm" href=""><i class="fa fa-plus text-success me-2"></i> Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="service-item rounded d-flex h-100">
+          <div class="service-img rounded">
+            <img class="img-fluid" src="https://picsum.photos/550/550?random=3" alt="">
+          </div>
+          <div class="service-text rounded p-5">
+            <div class="btn-square rounded-circle mx-auto mb-3">
+              <img class="img-fluid" src="https://picsum.photos/64/64?random=3" alt="Icon">
+            </div>
+            <h4 class="mb-3">Landscaping</h4>
+            <p class="mb-4">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet.
+            </p>
+            <a class="btn btn-sm" href=""><i class="fa fa-plus text-success me-2"></i> Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Service End -->
+
+
+<!-- Team Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+      <p class="fs-5 fw-bold text-success">Our Team</p>
+      <h1 class="display-5 mb-5">Dedicated & Experienced Team Members</h1>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="team-item rounded">
+          <img class="img-fluid" src="https://picsum.photos/550/650?random=2" alt="">
+          <div class="team-text">
+            <h4 class="mb-0">Doris Jordan</h4>
+            <p class="text-success">Landscape Designer</p>
+            <div class="team-social d-flex">
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="team-item rounded">
+          <img class="img-fluid" src="https://picsum.photos/550/650?random=6" alt="">
+          <div class="team-text">
+            <h4 class="mb-0">Johnny Ramirez</h4>
+            <p class="text-success">Garden Designer</p>
+            <div class="team-social d-flex">
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="team-item rounded">
+          <img class="img-fluid" src="https://picsum.photos/550/650?random=12" alt="">
+          <div class="team-text">
+            <h4 class="mb-0">Diana Wagner</h4>
+            <p class="text-success">Senior Gardener</p>
+            <div class="team-social d-flex">
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
+              <a class="btn btn-square rounded-circle me-2" href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Team End -->
+
+<!-- Testimonial Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+      <div class="row g-5">
+          <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
+              <p class="fs-5 fw-bold text-success">Testimonial</p>
+              <h1 class="display-5 mb-5">What Our Clients Say About Us!</h1>
+              <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
+              <a class="btn btn-success py-3 px-4" href="">See More</a>
+          </div>
+
+          <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.5s">
+            <swiper [config]="testimonialCarouselConfig">
+              <div class="swiper-wrapper testimonial-carousel">
+                <div class="swiper-slide testimonial-item">
+                  <img class="img-fluid  rounded mb-3" src="https://picsum.photos/100/100?random=3" alt="">
+                  <p class="fs-5">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.</p>
+                  <h4>Client Name</h4>
+                  <span>Profession</span>
+                </div>
+                <div class="swiper-slide testimonial-item">
+                  <img class="img-fluid  rounded mb-3" src="https://picsum.photos/100/100?random=4" alt="">
+                  <p class="fs-5">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.</p>
+                  <h4>Client Name</h4>
+                  <span>Profession</span>
+                </div>
+                <div class="swiper-slide testimonial-item">
+                  <img class="img-fluid  rounded mb-3" src="https://picsum.photos/100/100?random=5" alt="">
+                  <p class="fs-5">Dolores sed duo clita tempor justo dolor et stet lorem kasd labore dolore lorem ipsum. At lorem lorem magna ut et, nonumy et labore et tempor diam tempor erat.</p>
+                  <h4>Client Name</h4>
+                  <span>Profession</span>
+                </div>
+              </div>
+              <!-- Add Pagination -->
+              <div class="swiper-pagination"></div>
+            </swiper>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Testimonial End -->
+
