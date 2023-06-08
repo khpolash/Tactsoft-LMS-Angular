@@ -72,6 +72,7 @@ h6,
 }
 
 
+
 /*** Service ***/
 .service-item {
   position: relative;
@@ -118,15 +119,8 @@ h6,
   transition: .3;
 }
 
-.service-item:hover {
-  .service-text {
-    h4 {
-      color: #FFFFFF;
-    }
-    p{
-      color: #FFFFFF !important;
-    }
-  }
+.service-item:hover .service-text h4 {
+  color: #FFFFFF;
 }
 
 .service-item:hover .service-text p {
@@ -138,14 +132,6 @@ h6,
   height: 100px;
   background: transparent;
   transition: .5s;
-  border-radius: 50%;
-}
-
-.service-item {
-  img {
-    border-radius: 50%;
-  }
-
 }
 
 .service-item:hover .service-text .btn-square {
@@ -157,8 +143,8 @@ h6,
   height: 30px;
   display: inline-flex;
   align-items: center;
-  color: #000;
-  background: #d9ffdc;
+  color: var(--dark);
+  background: var(--light);
   white-space: nowrap;
   overflow: hidden;
   transition: .3s;
@@ -222,22 +208,21 @@ h6,
   opacity: 1;
 }
 
-/*** Testimonial ***/
-
-.testimonial-carousel .testimonial-item img {
-  width: 100px;
-  height: 100px;
-}
-
-.testimonial-carousel {
-  margin-top: 30px;
-  display: flex;
-}
-
-
-.testimonial-carousel {
-  p{
-    font-size: small !important;
-    text-align: justify;
+.carousel{
+  .carousel-inner{
+        width: 100%;
+        height: 400px !important;
+    .carousel-item{
+        width: 100%;
+        height: 100%;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 }
+
+
+
+
