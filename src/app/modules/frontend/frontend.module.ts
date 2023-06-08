@@ -22,7 +22,7 @@ import { OurServicesComponent } from './our-services/our-services.component';
     StudentsComponent,
     TermsConditionComponent,
     SupportComponent,
-    OurServicesComponent
+    OurServicesComponent,
   ],
   imports: [
     CommonModule,
