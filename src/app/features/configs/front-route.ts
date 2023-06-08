@@ -23,6 +23,22 @@ export const FrontRoute = {
     carouselCreate: 'carousel/create',
     carouselEdit: 'carousel/edit/:id',
 
+    allEventList: 'allEvent',
+    allEventCreate: 'allEvent/create',
+    allEventEdit: 'allEvent/edit/:id',
+
+    classRoomList: 'classRoom',
+    classRoomCreate: 'classRoom/create',
+    classRoomEdit: 'classRoom/edit/:id',
+
+    venueList: 'venue',
+    venueCreate: 'venue/create',
+    venueEdit: 'venue/edit/:id',
+
+    trainerList: 'trainer',
+    trainerCreate: 'trainer/create',
+    trainerEdit: 'trainer/edit/:id',
+
   //#endregion
 
   //#region FrontendRoute
