@@ -49,8 +49,8 @@ import { MomentDateAdapter, MomentDateModule } from '@angular/material-moment-ad
 import * as moment from 'moment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgxUsefulSwiperModule } from 'ngx-useful-swiper';
 import { CountUpModule } from 'ngx-countup';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 export const MAT_DATE_FORMATS = {
   parse: {
@@ -207,9 +207,8 @@ export class MyDateAdapter extends NativeDateAdapter {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxUsefulSwiperModule,
     CountUpModule,
-
+    SlickCarouselModule,
   ],
   exports: [
     A11yModule,
@@ -261,8 +260,8 @@ export class MyDateAdapter extends NativeDateAdapter {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxUsefulSwiperModule,
     CountUpModule,
+    SlickCarouselModule,
   ],
   providers: [
     // {provide: MAT_MOMENT_DATE_ADAPTER_OPTIONS, useValue: {useUtc: true}},
