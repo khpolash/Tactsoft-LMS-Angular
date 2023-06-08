@@ -1,1 +1,65 @@
-<p>carousel-create-update works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Carousel <span>Form</span></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-5">
+    <div class="t-basic-form t-form">
+      <form [formGroup]="carouselForm">
+        <div class="row">
+          <div class="col-md-12">
+            <mat-card class="t-card">
+              <mat-card-header class="mb-2">
+                <mat-card-subtitle>Carousel Picture</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                      <mat-label>
+                        Carousel Name
+                        <span class="required">*</span>
+                      </mat-label>
+                      <input matInput formControlName="name" placeholder="Enter Carousel Name" />
+                      <mat-error *ngIf="carouselForm.controls['name'].hasError('required')">
+                        Carousel Name is <strong>required</strong>
+                      </mat-error>
+                      <mat-error *ngIf="carouselForm.controls['name'].hasError('maxlength')">
+                        Carousel Name max length is <strong>20</strong>
+                      </mat-error>
+                    </mat-form-field>
+                    <div class="col-md-4">
+                      <mat-checkbox formControlName="isActive" color="primary">IsActive</mat-checkbox>
+                    </div>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="profile" (click)="avatarClassicInput.click()">
+                      <p *ngIf="!avaterPreview">Image</p>
+                      <input type="hidden" formControlName="picture" />
+                      <img class="img-thumbnail" [src]="avaterPreview" *ngIf="!!avaterPreview" alt="">
+                      <input type="file" hidden #avatarClassicInput (change)="uploadFileAttach($event)">
+                    </div>
+
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <button class="t-mat-raised-button mr-2" mat-stroked-button (click)="reset()">Reset</button>
+            <button class="t-mat-raised-button mr-2" mat-stroked-button (click)="clear()">clear</button>
+            <button mat-stroked-button color="primary" (click)="save()" class="t-mat-raised-button">
+              <mat-icon>{{ isEdit ? "update" : "save" }}</mat-icon>
+              {{ isEdit ? "Update" : "Save" }}
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
