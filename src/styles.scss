@@ -20,7 +20,6 @@ body {
   padding: 8px 0px;
 }
 
-
 .profile {
   background-color: #f1f1f1;
   display: flex;
@@ -42,12 +41,60 @@ body {
   font-size: small;
   font-weight: 500;
 }
-.avatar {
+.avatar{
   img {
-    width: 50px !important;
+    width: 100px !important;
+    height: 40px;
   }
 }
 .mdc-form-field>{
   label {
     margin-top: 10px;}
+}
+
+
+
+.event-carousel{
+
+  .slick-arrow{
+    background: #e8f5e9 !important;
+    width: 55px !important;
+    height: 41px !important;
+    padding-top: 2px !important;
+    border-radius: 3px !important;
+    z-index: 1;
+  }
+
+  .slick-arrow:hover{
+    background-color: #348e38 !important;
+  }
+  .slick-prev{
+    left: -8px !important;
+    top: 40% !important;
+  }
+  .slick-next{
+    right: -10px !important;
+    top: 40% !important;
+  }
+  .slick-prev::before{
+    font-family: "FontAwesome";
+    content: "\f053";
+    color: #348e38;
+  }
+  .slick-prev:hover::before{
+    font-family: "FontAwesome";
+    content: "\f053";
+    color: #e8f5e9;
+  }
+  .slick-next::before{
+    font-family: "FontAwesome";
+    content: "\f054";
+    color: #348e38;
+   }
+   .slick-next:hover:before{
+    font-family: "FontAwesome";
+    content: "\f054";
+    color: #e8f5e9;
+   }
+
 }
