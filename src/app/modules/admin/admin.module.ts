@@ -14,6 +14,14 @@ import { CategoryCreateUpdateComponent } from './category/category-create-update
 import { AvatarPipe } from 'src/app/core/pipe/avatar.pipe';
 import { CarouselListComponent } from './carousel/carousel-list/carousel-list.component';
 import { CarouselCreateUpdateComponent } from './carousel/carousel-create-update/carousel-create-update.component';
+import { AllEventCreateUpdateComponent } from './allEvent/all-event-create-update/all-event-create-update.component';
+import { AllEventListComponent } from './allEvent/all-event-list/all-event-list.component';
+import { ClassRoomListComponent } from './classRoom/class-room-list/class-room-list.component';
+import { ClassRoomCreateUpdateComponent } from './classRoom/class-room-create-update/class-room-create-update.component';
+import { TrainerListComponent } from './trainer/trainer-list/trainer-list.component';
+import { TrainerCreateUpdateComponent } from './trainer/trainer-create-update/trainer-create-update.component';
+import { VenueListComponent } from './venue/venue-list/venue-list.component';
+import { VenueCreateUpdateComponent } from './venue/venue-create-update/venue-create-update.component';
 
 
 @NgModule({
@@ -29,7 +37,15 @@ import { CarouselCreateUpdateComponent } from './carousel/carousel-create-update
     CategoryCreateUpdateComponent,
     AvatarPipe,
     CarouselListComponent,
-    CarouselCreateUpdateComponent
+    CarouselCreateUpdateComponent,
+    AllEventCreateUpdateComponent,
+    AllEventListComponent,
+    ClassRoomListComponent,
+    ClassRoomCreateUpdateComponent,
+    TrainerListComponent,
+    TrainerCreateUpdateComponent,
+    VenueListComponent,
+    VenueCreateUpdateComponent,
   ],
   imports: [
     CommonModule,
