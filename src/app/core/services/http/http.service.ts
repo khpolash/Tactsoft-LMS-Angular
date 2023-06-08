@@ -31,6 +31,10 @@ export abstract class HttpService<T> {
     this.BaseUrl = environment.baseUrl + routePrefix;
   }
 
+  getAllAsync(): Observable<T[]> {
+       return this.http.get<T[]>(`${this.BaseUrl}/GetAllAsync`).pipe(catchError(this.handleError));
+  }
+
   getPaging(pageIndex: number, pageSize: number): Observable<T[]> {
     let params = new HttpParams().set("pageIndex", pageIndex.toString()).set("pageSize", pageSize.toString());
 
