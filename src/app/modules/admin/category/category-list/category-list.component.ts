@@ -17,13 +17,14 @@ import { CategoryService } from 'src/app/features/services/category.service';
   templateUrl: './category-list.component.html',
   styleUrls: ['./category-list.component.scss']
 })
+
 export class CategoryListComponent implements OnInit {
 
   frontRoute = FrontRoute;
   userId: number;
 
   category: Category[];
-  categorys: Category[];
+  categories: Category[];
 
   displayedColumns: string[] = ["position","name","code","picture","action"];
   dataSource: MatTableDataSource<Category> = new MatTableDataSource();
