@@ -1,6 +1,10 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { SwiperOptions } from 'swiper';
-import { CountUpOptions } from 'countup.js';
+import { Component, OnInit } from '@angular/core';
+import { AllEventService } from 'src/app/features/services/all-event.service';
+import { CarouselService } from 'src/app/features/services/carousel.service';
+import { environment } from 'src/environments/environment';
+
+const carouselUrl = `${environment.baseUrl}/images/carousels/`;
+const eventUrl = `${environment.baseUrl}/images/allEvents/`;
 
 @Component({
   selector: 'app-home',
@@ -11,42 +15,77 @@ import { CountUpOptions } from 'countup.js';
 
 export class HomeComponent implements OnInit {
 
-  slideData = [
-     { id: 382, name: "Metal bluetooth cyan", },
-     { id: 822, name: "Avon",},
-     { id: 159, name: "Infrastructures", },
-     { id: 424, name: "Users Cotton", },
-     { id: 572, name: "Haptic Oklahoma Jewelery", },
-     { id: 127, name: "Circles Integration Street", },
-     { id: 109, name: "uniform Communications Tuna", },
-     { id: 619, name: "North Carolina", },
-     { id: 716, name: "Eyeballs Rubber", },
-     { id: 382, name: "Nevada green unleash", }
-  ]
+  constructor(
+    private carouselService: CarouselService,
+    private allEventService: AllEventService,
+    ){}
 
-  swiperCarouselConfig: SwiperOptions = {
-    autoplay: { delay: 3000, disableOnInteraction: false, },
+
+  optionimages=[];
+  eventImages = [];
+
+  carouselConfig = {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed:3000,
+    arrows:true,
+    draggable: true,
+    fade: true,
     speed: 1500,
-    loop: true,
-    effect: 'fade',
-    grabCursor: true,
-    fadeEffect: { crossFade: true },
-    pagination: { el: '.swiper-pagination', clickable: false },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev'},
-    spaceBetween: 100,
+    infinite: true,
+    cssEase: 'ease-in-out',
+    touchThreshold: 100,
+    pauseOnHover:false,
+    prevArrow: false,
+    nextArrow: false
   };
 
-  testimonialCarouselConfig: SwiperOptions = {
-    autoplay: { delay: 3000, disableOnInteraction: false, },
-    speed: 1500,
-    loop: true,
-    effect: 'slide',
-    grabCursor: true,
-    fadeEffect: { crossFade: true },
-    pagination: { el: '.swiper-pagination', clickable: false },
-    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev'},
-    spaceBetween: 100,
+  eventConfig = {
+    slidesToShow:4,
+    slidesToScroll: 1,
+    autoplay:true,
+    autoplaySpeed:3000,
+    arrows:true,
+    draggable: true,
+    dots:false,
+    speed: 500,
+    infinite: true,
+    touchThreshold: 100,
+    pauseOnHover:false,
+    responsive: [
+      {
+        // for desktop width 992px
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        // << for tablet
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        // << here's your mobile
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 3
+        }
+      }]
+    // prevArrow: false,
+    // nextArrow: false
   };
+
+
+
 
   // opts: CountUpOptions = {
   //   enableScrollSpy: true,
@@ -54,8 +93,23 @@ export class HomeComponent implements OnInit {
   // };
 
   ngOnInit(): void {
+    this.carouselService.getAllAsync().subscribe(result => {
+      let allImage = result['data'].reduce((temp, item)=> {
+        temp.push({name:item.name, picture:carouselUrl+item.picture, isActive:item.isActive})
+        return temp;
+      },[])
+      allImage.map((data: { isActive: boolean; })=>data.isActive==true?this.optionimages.push(data):null)
+    });
 
+    this.allEventService.getAllAsync().subscribe(result => {
+      let allEventImage = result['data'].reduce((temp, item)=> {
+        temp.push({name:item.name, picture:eventUrl+item.picture, isActive:item.isActive, description:item.description})
+        return temp;
+      },[])
+      allEventImage.map((data: { isActive: boolean; })=>data.isActive==true?this.eventImages.push(data):null)
+    });
 
   }
+
 
 }
