@@ -30,12 +30,11 @@
     "flag-icons": "^6.6.6",
     "jquery": "^3.7.0",
     "ngx-countup": "^13.1.0",
-    "ngx-useful-swiper": "^10.0.1",
+    "ngx-slick-carousel": "^15.0.0",
     "overlayscrollbars": "^2.1.1",
     "rxjs": "~7.5.0",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.6.16",
-    "swiper": "^6.8.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },
