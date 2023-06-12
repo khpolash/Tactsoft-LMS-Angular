@@ -1,1 +1,201 @@
-<p>trainer-create-update works!</p>
+<div class="row">
+  <div class="col-md-12">
+    <h1>Trainer <span>Form</span></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-5">
+    <div class="t-basic-form t-form">
+      <form [formGroup]="trainerForm">
+        <div class="row">
+          <div class="col-md-12">
+            <mat-card class="t-card">
+              <div class="row">
+                <div class="col-md-3">
+                  <mat-card-header class="mb-3">
+                    <mat-card-subtitle>Trainer Picture</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <div class="profile" (click)="avatarClassicInput.click()">
+                      <p *ngIf="!avaterPreview">Image</p>
+                      <input type="hidden" formControlName="picture" />
+                      <img class="img-thumbnail" [src]="avaterPreview" *ngIf="!!avaterPreview" alt="">
+                      <input type="file" hidden #avatarClassicInput (change)="uploadFileAttach($event)">
+                    </div>
+                  </mat-card-content>
+                </div>
+                <div class="col-md-3">
+                  <mat-card-header class="mb-3">
+                    <mat-card-subtitle>Curriculum Vitae</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <div class="profile">
+                      <input type="hidden" formControlName="curriculumVitae" />
+                      <input type="file" accept="application/pdf,application/msword,
+                      application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        (change)="uploadCVFileAttach($event)">
+                    </div>
+                  </mat-card-content>
+                </div>
+                <div class="col-md-6">
+                  <mat-card-header class="mb-3">
+                    <mat-card-subtitle>About Trainer</mat-card-subtitle>
+                  </mat-card-header>
+                  <mat-card-content>
+                    <mat-form-field class="w-100">
+                      <mat-label> About </mat-label>
+                      <textarea matInput formControlName="about" rows="3"
+                        placeholder="Write about trainer........."></textarea>
+                    </mat-form-field>
+                  </mat-card-content>
+                </div>
+              </div>
+              <mat-card-header class="mb-3">
+                <mat-card-subtitle>Trainer Information</mat-card-subtitle>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label>
+                        Trainer Name
+                        <span class="required"></span>
+                      </mat-label>
+                      <input matInput formControlName="name" placeholder="Enter name" />
+                      <mat-error *ngIf="trainerForm.controls['name'].hasError('required')">
+                        Trainer Name is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label> Trainer Email </mat-label>
+                      <input matInput formControlName="email" placeholder="Enter email address" />
+                      <mat-error *ngIf="trainerForm.controls['email'].hasError('required')">
+                        Trainer Email is <strong>required</strong>
+                      </mat-error>
+                      <mat-error *ngIf="trainerForm.controls['email'].hasError('email') &&
+                            !trainerForm.controls['email'].hasError('required')">
+                        Email is not valid
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label> Trainer Phone </mat-label>
+                      <input matInput formControlName="phone" placeholder="Enter contact number" />
+                      <mat-error *ngIf="trainerForm.controls['phone'].hasError('required')">
+                        Trainer Phone is <strong>required</strong>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                      <mat-label>
+                        Date of Birth
+                        <span class="required">*</span>
+                      </mat-label>
+                      <input
+                        matInput
+                        [matDatepicker]="birthDatePicker"
+                        [max]="today"
+                        formControlName="dateOfBirth"
+                        placeholder="Enter Birth Date"
+                        name="dateOfBirth"
+                        (dateChange)="dateChange('change', $event)"/>
+
+                      <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+                      <mat-datepicker #birthDatePicker></mat-datepicker>
+                      <!-- <mat-error *ngIf="trainerForm.controls['dateOfBirth'].hasError('required')">
+                        Birth Date is <strong>required</strong>
+                      </mat-error> -->
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                      <mat-label>
+                        Joining Date
+                        <span class="required">*</span>
+                      </mat-label>
+                      <input
+                        matInput
+                        [matDatepicker]="joiningDate"
+                        [max]="today"
+                        formControlName="joiningDate"
+                        placeholder="Enter Birth Date"
+                        name="dateOfBirth"
+                        (dateChange)="dateChange('change', $event)"/>
+
+                      <mat-datepicker-toggle matSuffix [for]="joiningDate"></mat-datepicker-toggle>
+                      <mat-datepicker #joiningDate></mat-datepicker>
+                      <!-- <mat-error *ngIf="trainerForm.controls['joiningDate'].hasError('required')">
+                        Joining Date is <strong>required</strong>
+                      </mat-error> -->
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label> Academic Info </mat-label>
+                      <input matInput formControlName="academicInfo" placeholder="Enter contact number" />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label> Experience </mat-label>
+                      <input matInput formControlName="experience" placeholder="Enter contact number" />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label>Expertise</mat-label>
+                      <mat-select placeholder="Expertise" formControlName="expertise" [multiple]="true" >
+                        <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label>Address</mat-label>
+                      <textarea matInput formControlName="address" rows="1"
+                        placeholder="Write present address ........."></textarea>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label> Facebook Link </mat-label>
+                      <input matInput formControlName="facebookLink" placeholder="Enter contact number" />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label> Twitter Link </mat-label>
+                      <input matInput formControlName="twitterLink" placeholder="Enter contact number" />
+                    </mat-form-field>
+                  </div>
+                  <div class="col-md-4 mb-2">
+                    <mat-form-field class="w-100">
+                      <mat-label> Linkedin Link </mat-label>
+                      <input matInput formControlName="linkedinLink" placeholder="Enter contact number" />
+                    </mat-form-field>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 mt-3">
+            <button class="t-mat-raised-button mr-2" mat-stroked-button (click)="reset()">Reset</button>
+            <button class="t-mat-raised-button mr-2" mat-stroked-button (click)="clearTrainer()">clear</button>
+            <button mat-stroked-button color="primary" (click)="save()" class="t-mat-raised-button">
+              <mat-icon>{{ isEdit ? "update" : "save" }}</mat-icon>
+              {{ isEdit ? "Update" : "Save" }}
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
