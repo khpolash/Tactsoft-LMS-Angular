@@ -16,11 +16,9 @@ import { CountryService } from 'src/app/features/services/country.service';
 @Component({
   selector: 'app-country-creat-update',
   templateUrl: './country-create-update.component.html',
-  styleUrls: ['./country-create-update.component.scss']
+  styleUrls: ['./country-create-update.component.scss'],
 })
-
 export class CountryCreateUpdateComponent implements OnInit {
-
   message = Messages;
   errors: any;
   formData: any;
@@ -29,15 +27,14 @@ export class CountryCreateUpdateComponent implements OnInit {
 
   country: Country;
 
-  countryId:number;
-  countryForm:FormGroup;
-  countryFormValue:any;
+  countryId: number;
+  countryForm: FormGroup;
+  countryFormValue: any;
 
+  @ViewChild('lableInput') labelInput: ElementRef<HTMLInputElement>;
+  @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
-  @ViewChild("lableInput") labelInput: ElementRef<HTMLInputElement>;
-  @ViewChild("auto") matAutocomplete: MatAutocomplete;
-
-  displayedColumns: string[] = ["name","code","currency","flag","action"];
+  displayedColumns: string[] = ['name', 'code', 'currency', 'flag', 'action'];
   dataSource = new MatTableDataSource<Country>();
   selection = new SelectionModel<Country>(true, []);
 
@@ -50,15 +47,16 @@ export class CountryCreateUpdateComponent implements OnInit {
     public http: HttpClient,
     public fb: FormBuilder,
     public countryService: CountryService,
-    private messageService: MessageService,
-    ) { }
-
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe((params) => (this.countryId = params["id"] ? Number(params["id"]) : 0));
+    this.route.params.subscribe(
+      (params) => (this.countryId = params['id'] ? Number(params['id']) : 0)
+    );
     this.isEdit = !!this.countryId;
     this.countryForm = this.form;
-    this.countryForm.patchValue({id: this.countryId});
+    this.countryForm.patchValue({ id: this.countryId });
     this.getCountryDetail(this.countryId);
   }
 
@@ -80,10 +78,10 @@ export class CountryCreateUpdateComponent implements OnInit {
   get form(): any {
     return this.fb.group({
       id: [0],
-      name:["",[Validators.required, Validators.maxLength(50)]],
-      code:["",[Validators.required]],
-      currency:["",[Validators.required]],
-      flag:[""],
+      name: ['', [Validators.required, Validators.maxLength(50)]],
+      code: ['', [Validators.required]],
+      currency: ['', [Validators.required]],
+      flag: [''],
     });
   }
 
@@ -91,14 +89,13 @@ export class CountryCreateUpdateComponent implements OnInit {
     if (data !== null) {
       this.countryForm.patchValue({
         id: data.id,
-        name:data.name,
-        code:data.code,
-        currency:data.currency,
-        flag:data.flag,
+        name: data.name,
+        code: data.code,
+        currency: data.currency,
+        flag: data.flag,
       });
     }
   }
-
 
   save(): void {
     this.errors = FormExtension.getFormValidationErrors(this.countryForm);
@@ -109,16 +106,17 @@ export class CountryCreateUpdateComponent implements OnInit {
 
     this.countryFormValue = this.countryForm.getRawValue();
     this.formData = FormExtension.toFormData(this.countryForm);
-    console.log("save", this.countryFormValue);
+    console.log('save', this.countryFormValue);
 
     if (this.countryFormValue.id > 0) {
-
-      this.countryService.updateCountryDetail(this.countryFormValue.id, this.formData).subscribe({
-        next: () => {
-          this.messageService.toastSuccess(this.message.updateSuccess);
-          this.router.navigate(['admin/country']);
-        },
-      });
+      this.countryService
+        .updateCountryDetail(this.countryFormValue.id, this.formData)
+        .subscribe({
+          next: () => {
+            this.messageService.toastSuccess(this.message.updateSuccess);
+            this.router.navigate(['admin/country']);
+          },
+        });
     } else {
       this.countryService.addCountryDetail(this.formData).subscribe({
         next: () => {
@@ -138,5 +136,4 @@ export class CountryCreateUpdateComponent implements OnInit {
     this.countryForm.markAsUntouched();
     FormExtension.markAllAsUntoched(this.countryForm);
   }
-
 }
