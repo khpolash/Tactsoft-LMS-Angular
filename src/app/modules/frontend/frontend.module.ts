@@ -11,6 +11,7 @@ import { StudentsComponent } from './students/students.component';
 import { TermsConditionComponent } from './terms-condition/terms-condition.component';
 import { SupportComponent } from './support/support.component';
 import { OurServicesComponent } from './our-services/our-services.component';
+import { TrainerComponent } from './trainer/trainer.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { OurServicesComponent } from './our-services/our-services.component';
     TermsConditionComponent,
     SupportComponent,
     OurServicesComponent,
+    TrainerComponent,
   ],
   imports: [
     CommonModule,
