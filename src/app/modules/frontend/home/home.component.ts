@@ -94,7 +94,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.carouselService.getAllAsync().subscribe(result => {
-      let allImage = result['data'].reduce((temp, item)=> {
+      let allImage = result['data'].reduce((temp: { name: any; picture: string; isActive: any; }[], item: { name: any; picture: string; isActive: any; })=> {
         temp.push({name:item.name, picture:carouselUrl+item.picture, isActive:item.isActive})
         return temp;
       },[])
@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.allEventService.getAllAsync().subscribe(result => {
-      let allEventImage = result['data'].reduce((temp, item)=> {
+      let allEventImage = result['data'].reduce((temp: { name: any; picture: string; isActive: any; description: any; }[], item: { name: any; picture: string; isActive: any; description: any; })=> {
         temp.push({name:item.name, picture:eventUrl+item.picture, isActive:item.isActive, description:item.description})
         return temp;
       },[])
