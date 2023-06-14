@@ -22,9 +22,9 @@ import { environment } from 'src/environments/environment';
   templateUrl: './trainer-create-update.component.html',
   styleUrls: ['./trainer-create-update.component.scss']
 })
+
 export class TrainerCreateUpdateComponent implements OnInit {
 
-  jsonUrl = "assets/data/trainer.data.json";
   message = Messages;
   errors: any;
   formData: any;
@@ -36,16 +36,17 @@ export class TrainerCreateUpdateComponent implements OnInit {
   picture: any;
   curriculumVitae:any;
   avaterPreview: any;
+  cvPreview:any;
   trainer: Trainer;
 
   today = new Date();
 
-  // selected =[];
+  selectedValue:any[];
 
-  toppingList: string[] = [
+  toppingList: any[]= [
     'Asp.Net',
     'Java',
-    'Php',
+    'Php' ,
     'Sql Server',
     'My Sql',
     'MongoDB',
@@ -53,16 +54,14 @@ export class TrainerCreateUpdateComponent implements OnInit {
     'React',
     'Vue',
     'Express',
-    'Node',
+    'Node'
   ];
 
-  // public uploader: FileUploader;
   uploadUrl: string;
 
   @ViewChild("lableInput") labelInput: ElementRef<HTMLInputElement>;
   @ViewChild("auto") matAutocomplete: MatAutocomplete;
 
-  // displayedColumns: string[] = ["picture", "name", "phone", "email", "genderId", "action"];
 
   dataSource = new MatTableDataSource<Trainer>();
   selection = new SelectionModel<Trainer>(true, []);
@@ -82,19 +81,12 @@ export class TrainerCreateUpdateComponent implements OnInit {
   ) { }
 
   ngAfterViewInit(): void {
-    this.load();
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+
     this.trainerForm.valueChanges.pipe(distinctUntilChanged()).subscribe({
       next: (v: any) => {
         let obj = { data: this.trainerForm.getRawValue(), errors: this.errors };
         this.dataPassService.setData(obj);
       },
-    });
-  }
-  load(): any {
-    return this.http.get(this.jsonUrl).subscribe((e: any) => {
-      this.dataSource = new MatTableDataSource<Trainer>(e);
     });
   }
 
@@ -104,7 +96,6 @@ export class TrainerCreateUpdateComponent implements OnInit {
     this.trainerForm = this.form;
     this.trainerForm.patchValue({ id: this.trainerId });
     this.getTrainerDetail(this.trainerId);
-    // this.uploader = new FileUploader({});
   }
 
   getTrainerDetail(trainerId: any) {
@@ -133,8 +124,8 @@ export class TrainerCreateUpdateComponent implements OnInit {
       address: [""],
       academicInfo: [""],
       experience: [""],
-      expertise: [[]],
-      about: [""],
+      expertise: ["",[Validators.required]],
+      about: ["",[Validators.required,Validators.minLength(100), Validators.maxLength(150)]],
       facebookLink: [""],
       twitterLink: [""],
       linkedinLink: [""],
@@ -158,21 +149,19 @@ export class TrainerCreateUpdateComponent implements OnInit {
         academicInfo: data.academicInfo,
         experience: data.experience,
         address: data.address,
-        expertise: data.expertise,
         facebookLink: data.facebookLink,
         twitterLink: data.twitterLink,
         linkedinLink: data.linkedinLink,
+        // expertise: data.expertise,
         picture: data.picture,
         curriculumVitae: data.curriculumVitae
       });
-      // this.selected = [data.expertise];
-
-      // console.log(this.selected);
 
       this.avaterPreview = data.picture ? `${environment.baseUrl}/${data.picture}` : "";
       this.picture = data.picture;
-      // this.curriculumVitae = data.curriculumVitae;
-      console.log("path avater", this.picture);
+      this.cvPreview = data.curriculumVitae ? `${environment.baseUrl}/${data.curriculumVitae}` : "";
+      this.selectedValue = (data.expertise).split(",");
+      console.log(this.selectedValue);
       console.log("path", data, this.trainerForm.getRawValue());
     }
   }
@@ -195,7 +184,6 @@ export class TrainerCreateUpdateComponent implements OnInit {
     this.formData = FormExtension.toFormData(this.trainerForm);
     console.log("save", this.trainerFormValue);
 
-    debugger;
     if (this.trainerFormValue.id > 0) {
 
       this.trainerService.updateTrainerDetail(this.trainerFormValue.id, this.formData).subscribe({
