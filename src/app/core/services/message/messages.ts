@@ -1,5 +1,6 @@
 export const Messages = {
   saveSucess: "Saved Successfully",
+  sendSucess: "Send Successfully",
   updateSuccess: "Updated Successfully",
   deleteSuccess: "Deleted Successfully",
   otpSend: "OTP Send Successfully",
