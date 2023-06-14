@@ -44,10 +44,10 @@ export const FrontRoute = {
   //#region FrontendRoute
 
     home: 'home',
-
     contact:'contact',
     courses:'courses',
     students:'students',
+    trainers:'trainers',
 
     aboutUs:'about-us',
     ourServices:'our-services',

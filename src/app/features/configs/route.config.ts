@@ -26,6 +26,7 @@ import { VenueListComponent } from 'src/app/modules/admin/venue/venue-list/venue
 import { VenueCreateUpdateComponent } from 'src/app/modules/admin/venue/venue-create-update/venue-create-update.component';
 import { ClassRoomListComponent } from 'src/app/modules/admin/classRoom/class-room-list/class-room-list.component';
 import { ClassRoomCreateUpdateComponent } from 'src/app/modules/admin/classRoom/class-room-create-update/class-room-create-update.component';
+import { TrainerComponent } from 'src/app/modules/frontend/trainer/trainer.component';
 
 
 const frontRoute = FrontRoute;
@@ -80,6 +81,7 @@ export const frontendNavs = [
   { name: "Home", path: frontRoute.home, component: HomeComponent, icon: "home", active: true, title: "", priority: 1, menu: true, data: { breadcrumb: "Home" } },
   { name: "Courses", path: frontRoute.courses, component: CoursesComponent, icon: "home", active: true, title: "", priority: 1, menu: true, data: { breadcrumb: "Home" } },
   { name: "Students", path: frontRoute.students, component: StudentsComponent, icon: "home", active: true, title: "", priority: 1, menu: true, data: { breadcrumb: "Home" } },
+  { name: "Trainers", path: frontRoute.trainers, component: TrainerComponent, icon: "home", active: true, title: "", priority: 1, menu: true, data: { breadcrumb: "Home" } },
   { name: "Contact", path: frontRoute.contact, component: ContactComponent, icon: "home", active: true, title: "", priority: 1, menu: true, data: { breadcrumb: "Home" } },
 
 ];
